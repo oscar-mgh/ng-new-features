@@ -1,0 +1,19 @@
+<title-component texto="Defer Views/Blocks" isItalic></title-component>
+
+<section class="grid grid-cols-1">
+  @defer () {
+    <heavy-loader-slow cssClass="bg-blue-500"></heavy-loader-slow>
+  } @placeholder {
+    <p class="h-[600px] w-full bg-gradient-to-r from-gray-200 animate-pulse italic text-3xl">Cargando...</p>
+  }
+  @defer (on idle) {
+    <heavy-loader-slow cssClass="bg-green-500"></heavy-loader-slow>
+  } @placeholder {
+    <p class="h-[600px] w-full bg-gradient-to-r from-gray-200 animate-pulse italic text-3xl">Cargando...</p>
+  }
+  @defer (on viewport) {
+    <heavy-loader-slow cssClass="bg-yellow-500"></heavy-loader-slow>
+  } @placeholder {
+    <p class="h-[600px] w-full bg-gradient-to-r from-gray-200 animate-pulse italic text-3xl">Cargando...</p>
+  }
+</section>

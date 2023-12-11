@@ -1,0 +1,14 @@
+<title-component texto="Listado de usuarios" isItalic />
+
+<ul>
+  @for (user of usersService.users(); track user.id) {
+  <li class="flex items-center my-2 cursor-pointer">
+    <img class="rounded w-14" [srcset]="user.avatar" [alt]="user.first_name" />
+    <a [routerLink]="['/dashboard/user', user.id]" class="mx-5 hover:underline">
+      {{ user.first_name }} {{ user.last_name }}
+    </a>
+  </li>
+  } @empty {
+    <p class="text-2lg italic">Espere por favor ...</p>
+  }
+</ul>

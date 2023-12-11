@@ -1,0 +1,73 @@
+<title-component texto="Defer Triggers" isItalic />
+
+<section>
+  <h1 class="text-xl">Interacciones</h1>
+  <hr class="my-2" />
+
+  <!-- @defer (on immediate) {} -->
+
+  @defer (on interaction) {
+    <heavy-loader-fast cssClass="bg-blue-400 h-20">
+      <span>On Interaction</span>
+    </heavy-loader-fast>
+
+  } @placeholder {
+    <div class="w-full h-20 bg-pink-100">Click this div</div>
+  }
+</section>
+
+<section>
+  <hr class="my-2" />
+
+  <button #btnInteraction class="p-2 bg-teal-600 hover:bg-teal-700 transition-all rounded text-white my-2">
+    Click me
+  </button>
+
+  @defer (on interaction(btnInteraction)) {
+    <heavy-loader-fast cssClass="bg-teal-500 h-20">
+      <span>On Interaction</span>
+    </heavy-loader-fast>
+
+  } @placeholder {
+    <div class="w-full h-20 bg-pink-100">Placeholder button</div>
+  }
+</section>
+
+<section>
+  <hr class="my-2" />
+
+  @defer (on hover) {
+    <heavy-loader-fast cssClass="bg-blue-300 h-20">
+      <span>On Hover</span>
+    </heavy-loader-fast>
+
+  } @placeholder {
+    <div class="w-full h-20 bg-pink-100">Hover div</div>
+  }
+</section>
+
+<section>
+  <hr class="my-2" />
+
+  @defer (on timer(2000)) {
+    <heavy-loader-fast cssClass="bg-green-300 h-20">
+      <span>On Timer</span>
+    </heavy-loader-fast>
+
+  } @placeholder {
+    <div class="w-full h-20 bg-pink-100">TIMER 2 SECONDS!</div>
+  }
+</section>
+
+<section>
+  <hr class="my-2" />
+  <!-- Prefetching -->
+  @defer (on hover; prefetch on idle) {
+    <heavy-loader-fast cssClass="bg-purple-300 h-20">
+      <span>On Hover, idle</span>
+    </heavy-loader-fast>
+
+  } @placeholder {
+    <div class="w-full h-20 bg-pink-100">Hover prefetch</div>
+  }
+</section>
